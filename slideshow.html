@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Mini Crash Course
+`(HTTP, Rest, API's, Servers, Promises)`
+
+---
+
+# HTTP Request
+
+**What does an HTTP request even look like?**
+
+An HTTP request is created by a client to access a resource on the server.
+An HTTP request will contain the following elements:
+ 1. A request line
+ 2. Headers *(Defines how the server might process the request, key/value pairs separated by a colon)*
+ 3. Body *(The content of the data)*
+ ![http-request-image](request-image.png)
+
+---
+
+# HTTP Response
+
+**What does an HTTP response even look like?**
+
+An HTTP response is created by a server to respond to a client's request.
+An HTTP response will contain the following elements:
+ 1. A status line
+ 2. Headers
+ 3. Message body
+
+Status Codes:
+- 100 - 199: Informational
+- 200 - 299: Successful
+- 300 - 399: Redirection
+- 400 - 499: Client Error
+- 500 - 599: Server Error
+
+Common MIME types for the Content-Type header of a response:
+- text/html	HTML document
+- text/plain	plain text
+- image/png	PNG Image
+- application/json	JSON - data format similar to JavaScript object
+
+---
+
+# HTTP Response
+
+![http-request-image](response-image.png)
+
+---
+
+# Request/Response Cycle
+
+ ![http-request-image](client-server-cycle-image.png)
+
+---
+
+# Pop Quiz
+![http-request-image](http-request.png)
+1. **In the HTTP request line, what is the method, URI, and HTTP version?**
+2. **What are examples of Headers?**
+3. **What is the body?**
+4. **What are 5 common HTTP Verbs (methods)?**
+5. **Give an example of a request/response cycle?**
+
+---
+
+# Pop Quiz
+**Answers**
+1. > POST, /, HTTP/1.0
+2. > Few Examples: Host: appacademy.io
+Content-Type: application/x-www-form-urlencoded
+Host: appacademy.io
+3. > username=azure&password=hunter2
+4. > GET, POST, PUT, PATCH, and DELETE
+5. > When a user submits a form on the browser, the browser makes a **request** to the server with the contents of the HTML form inside of the request body.
+Then, the server processes the request and **responds** back to the user with a specified resource.
+
+---
+
+# Breaking down the URL
+![http-request-image](url-image.png)
+
+---
+
+# Promises
+
+> "The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value." ~ MDN
+
+> Fetch is an example of utilizing the Promise object. Fetch is used to make HTTP requests on the browser.
+It uses Promises to handle the asynchronous nature of HTTP requests and responses.
+Fetch is used to formulate and send a request to a server and read the server response.
+
+> **Example using fetch:**
+
+`const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });`
+
+`const data = response.json();`
+
+---
+
+# Mini Crash Course
+`(HTTP, Rest, API's, Servers, Promises)`
+
+> **References**
+
+> - App Academy Week 8
+> - MDN Web Docs
+
+*Thanks for listening! :)*
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
